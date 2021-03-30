@@ -59,3 +59,12 @@ slots:
     type: text
   address:
     type: text
+
+forms:
+  facility_form:
+    facility_type:
+      - type: from_entity
+        entity: facility_type
+    location:
+      - type: from_entity
+        entity: location
