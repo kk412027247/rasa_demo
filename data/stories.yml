@@ -1,6 +1,50 @@
 version: "2.0"
 
 stories:
+- story: happy_path
+  steps:
+    - intent: greet
+    - action: find_facility_types
+    - action: facility_form
+    - active_loop: facility_form
+    - active_loop: null
+    - intent: inform
+    - action: find_healthcare_address
+    - action: utter_address
+    - intent: thankyou
+    - intent: utter_goodbye
+
+- story: happy_path2
+  steps:
+    - intent: search_provider
+    - action: facility_form
+    - active_loop: facility_form
+    - active_loop: null
+    - intent: inform
+    - action: find_healthcare_address
+    - action: utter_address
+    - intent: thankyou
+    - action: utter_noworries
+
+- story: happy_path_multi_requests
+  steps:
+    - intent: greet
+    - action: find_facility_facility_types
+    - intent: inform
+    - action: facility_form
+    - active_loop: facility_form
+    - active_loop: null
+    - intent: inform
+    - action: find_healthcare_address
+    - action: utter_address
+    - intent: search_provider
+    - action: facility_form
+    - active_loop: facility_form
+    - active_loop: null
+    - intent: inform
+    - action: find_healthcare_address
+    - action: utter_address
+
 - story: search hospital happy path
   steps:
   - intent: greet
@@ -56,3 +100,5 @@ stories:
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
+
+
